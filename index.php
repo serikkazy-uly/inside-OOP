@@ -4,7 +4,7 @@
 
 class Person{
     public $age;
-    public $name = 'Damik';
+    public $name;
 
 
 
@@ -18,8 +18,10 @@ public function sayHi($name){
 }
 
 $myPerson = new Person();
+$myPerson2 = new Person();
 
-// $myPerson->setName('Rahim');
-// $myPerson->setName('Go');
+echo $myPerson->setName('Rahim ');
+echo  $myPerson->name; 
 
-echo  $myPerson->name;
+echo $myPerson2->setName('Fara');
+echo $myPerson2->name;
