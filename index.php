@@ -1,27 +1,33 @@
 <?php
 
-
-
 class Person{
     public $age;
     public $name;
 
 
-
-
-public function sayHi($name){
-    echo 'Hi I am ' . $name;
+public function sayHi(){
+    echo 'Hi I am ' . $this->name;
 }
  public function setName($name){      
     $this->name = $name;
  }
+
+ public function setAge($age){
+    $this->age = $age;
+ }
 }
 
 $myPerson = new Person();
-$myPerson2 = new Person();
-
-echo $myPerson->setName('Rahim ');
+// $myPerson->setName('Rahim ');
 echo  $myPerson->name; 
 
-echo $myPerson2->setName('Fara');
+$myPerson2 = new Person();
+// $myPerson2->setName('Fara');
 echo $myPerson2->name;
+
+
+$myPerson ->setAge(34);
+// echo $myPerson->age;
+
+$myPerson->setName('Danik');
+$myPerson->sayHi(); 
