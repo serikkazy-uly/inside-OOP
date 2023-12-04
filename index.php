@@ -6,7 +6,7 @@ class Person{
 
 
 public function sayHi(){
-    echo 'Hi I am ' . $this->name;
+    return 'Hi I am ' . $this->name . ' ' . 'and my age: ' . $this->age;
 }
  public function setName($name){      
     $this->name = $name;
@@ -14,6 +14,10 @@ public function sayHi(){
 
  public function setAge($age){
     $this->age = $age;
+ }
+
+ public function sayAge(){
+     return $this->age;
  }
 }
 
@@ -30,4 +34,9 @@ $myPerson ->setAge(34);
 // echo $myPerson->age;
 
 $myPerson->setName('Danik');
-$myPerson->sayHi(); 
+$myPerson->sayAge();
+echo $myPerson->sayHi(); 
+
+
+
+// var_dump( $myPerson->sayAge );
