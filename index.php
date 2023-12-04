@@ -22,14 +22,13 @@ public function sayHi(){
  public function sayAge(){
      return $this->age;
  }
+
+ public static function Smth(){
+    echo 'gogogoo';
+ }
 }
 
-$myPerson = new Person('Raha', 37);
+Person::Smth();
 
-echo  $myPerson->name; 
-echo $myPerson->age;
 
-$myPerson2 = new Person('Jas', 36);
-echo $myPerson2->name;
-echo $myPerson2->age;
  
