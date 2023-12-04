@@ -4,7 +4,10 @@ class Person{
     public $age;
     public $name;
 
-
+public function __construct($name, $age){
+    $this->name = $name;
+    $this->age = $age;
+}
 public function sayHi(){
     return 'Hi I am ' . $this->name . ' ' . 'and my age: ' . $this->age;
 }
@@ -13,7 +16,7 @@ public function sayHi(){
  }
 
  public function setAge($age){
-    $this->age = $age;
+    $this->age=$age;
  }
 
  public function sayAge(){
@@ -21,22 +24,12 @@ public function sayHi(){
  }
 }
 
-$myPerson = new Person();
-// $myPerson->setName('Rahim ');
+$myPerson = new Person('Raha', 37);
+
 echo  $myPerson->name; 
+echo $myPerson->age;
 
-$myPerson2 = new Person();
-// $myPerson2->setName('Fara');
+$myPerson2 = new Person('Jas', 36);
 echo $myPerson2->name;
-
-
-$myPerson ->setAge(34);
-// echo $myPerson->age;
-
-$myPerson->setName('Danik');
-$myPerson->sayAge();
-echo $myPerson->sayHi(); 
-
-
-
-// var_dump( $myPerson->sayAge );
+echo $myPerson2->age;
+ 
