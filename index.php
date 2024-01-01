@@ -1,42 +1,21 @@
 <?php
-// function dd($data){
-//     var_dump($data);
-// die;
-// };
+function dd($data)
+{
+    var_dump($data);
+    die;
+};
+// соед  с БД
+$pdo = new PDO('mysql:host=mysql; dbname=app; charset=utf8;', 'user', 'secret');
+//выполнить запрос
+$sql = 'SELECT * FROM posts';
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+// получить ассац массив
+$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// return $posts;
 
-// $posts =
-//     [
-//         [
-//             "id" => 1,
-//             "title" => "lorem"
-//         ],
-//         [
-//             "id" => 2,
-//             "title" => "lorem2"
-//         ],
-//         [ 
-//             "id" => 3,
-//             "title" => "lorem3"
-//         ],
+// вывести через foreach(){}
 
-//     ];
-    $pdo = new PDO('mysql:host=mysql; dbname=app; charset=utf8;', 'user', 'secret');
-    // var_dump($pdo);
-    // die;
-
-    $sql = 'SELECT * FROM posts';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // return $posts;
-
-    // echo '<pre>';
-    // var_dump($posts);
-    // echo '</pre>';
-    // die;
-
-    // dd($posts);
-    // die;
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +62,7 @@
                     </tr>
                 </thead>
                 <tbody>
-    
+
                     <?php foreach ($posts as $post) : ?>
                         <tr>
                             <th scope="row">
