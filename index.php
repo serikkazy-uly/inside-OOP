@@ -1,8 +1,8 @@
 <?php
-function dd($data){
-    var_dump($data);
-die;
-};
+// function dd($data){
+//     var_dump($data);
+// die;
+// };
 
 // $posts =
 //     [
@@ -23,15 +23,19 @@ die;
     $pdo = new PDO('mysql:host=mysql; dbname=app; charset=utf8;', 'user', 'secret');
     // var_dump($pdo);
     // die;
-    
+
     $sql = 'SELECT * FROM posts';
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     // return $posts;
+
     // echo '<pre>';
     // var_dump($posts);
     // echo '</pre>';
+    // die;
+
+    // dd($posts);
     // die;
 ?>
 
