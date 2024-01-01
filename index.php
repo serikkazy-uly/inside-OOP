@@ -1,23 +1,38 @@
 <?php
-$posts = 
-  [
-    [
-        "id" => 1,
-        "title" => "lorem"
-    ],
-    [
-        "id" => 2,
-        "title" => "lorem2"
-    ],
-    [
-        "id" => 3,
-        "title" => "lorem3"
-    ],
+function dd($data){
+    var_dump($data);
+die;
+};
 
-]
+// $posts =
+//     [
+//         [
+//             "id" => 1,
+//             "title" => "lorem"
+//         ],
+//         [
+//             "id" => 2,
+//             "title" => "lorem2"
+//         ],
+//         [ 
+//             "id" => 3,
+//             "title" => "lorem3"
+//         ],
 
-
-
+//     ];
+    $pdo = new PDO('mysql:host=mysql; dbname=app; charset=utf8;', 'user', 'secret');
+    // var_dump($pdo);
+    // die;
+    
+    $sql = 'SELECT * FROM posts';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // return $posts;
+    // echo '<pre>';
+    // var_dump($posts);
+    // echo '</pre>';
+    // die;
 ?>
 
 <!DOCTYPE html>
@@ -64,10 +79,12 @@ $posts =
                     </tr>
                 </thead>
                 <tbody>
+    
                     <?php foreach ($posts as $post) : ?>
                         <tr>
-                            <th scope="row"><?= $post['id']?></th>
-                            <td><?= $post['title']?> </td>
+                            <th scope="row">
+                                <?= $post['id'] ?></th>
+                            <td><?= $post['title'] ?> </td>
                             <td>
                                 <a href="#" class="btn btn-warning">Edit</a>
                                 <a href="#" class="btn btn-danger">Delete</a>
