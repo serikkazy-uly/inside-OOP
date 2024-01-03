@@ -1,11 +1,11 @@
 <?php
 include 'functions.php';
-include 'db/QueryBuilder.php';
+$db = include 'database/start.php';
 
-$pdo = connect_to();
-$db = new QueryBuilder($pdo);
-
-$posts = $db->getAll();
-
+$posts = $db->getAll('posts');
+// $users = $db->getAll('users');
+// $categories = $db->getAll('categories');
 
 include  'index.view.php';
+
+?>
