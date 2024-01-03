@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +32,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8-offset-md-2">
+        <div class="col-md-8-offset-md-2">  
             <a href="#" class="btn btn-success">Add Post</a>
             <table class="table">
                 <thead>
@@ -41,13 +42,13 @@
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody>  
 
                     <?php foreach ($posts as $post) : ?>
                         <tr>
-                            <th scope="row">
-                                <?= $post['id'] ?></th>
-                            <td><?= $post['title'] ?> </td>
+                            <th scope="row"><?php echo $post['id']; ?></th>
+                            <td><a href="show.php?id=<?php echo $post['id']; ?>"> <?php echo $post['title']; ?></a> </td>
+
                             <td>
                                 <a href="#" class="btn btn-warning">Edit</a>
                                 <a href="#" class="btn btn-danger">Delete</a>

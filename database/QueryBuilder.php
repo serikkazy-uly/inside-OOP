@@ -18,10 +18,22 @@ class QueryBuilder
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
    }
 
+   public function getOne($table, $id)
+   {
+      // dd([$table, $id]);
+      $sql = "SELECT * FROM {$table} WHERE id=:id";
+
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->bindValue(':id', $id);
+      $stmt->execute();
+      $result = $stmt->fetch(PDO::FETCH_ASSOC);
+      return $result;
+   }
+
    public function create($table, $data)
    {
       $keys = implode(',', array_keys($data));
-      $tags =":" . implode(', :', array_keys($data));
+      $tags = ":" . implode(', :', array_keys($data));
 
       $sql = "INSERT INTO {$table} ({$keys}) VALUES({$tags})";
 

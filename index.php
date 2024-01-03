@@ -8,4 +8,4 @@ $posts = $db->getAll('posts');
 
 include  'index.view.php';
 
-?>
+?> 
