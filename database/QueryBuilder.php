@@ -20,7 +20,6 @@ class QueryBuilder
 
    public function getOne($table, $id)
    {
-      // dd([$table, $id]);
       $sql = "SELECT * FROM {$table} WHERE id=:id";
 
       $stmt = $this->pdo->prepare($sql);
@@ -39,5 +38,38 @@ class QueryBuilder
 
       $stmt = $this->pdo->prepare($sql);
       $stmt->execute($data);
+   }
+   public function update($table, $data, $id)
+   {
+      $keys = array_keys($data);
+
+      $string = '';
+
+      foreach($keys as $key){
+         $string .= $key . '=:' . $key . ',';
+      }
+      $keys = rtrim($string, ',');
+
+      $data['id'] = $id;
+
+      // dd($data);
+        
+      $sql = "UPDATE {$table} SET {$keys} WHERE id = :id";
+      $stmt = $this->pdo->prepare($sql);
+      // $stmt->bindValue(':id', $id);
+      $stmt->execute($data);
+      // dd($stmt->execute($data));   
+   }
+
+   public function delete($table, $id)
+   {
+      $sql = "DELETE FROM {$table} WHERE id=:id";
+
+      $stmt = $this->pdo->prepare($sql);
+      // $stmt->bindValue(':id', $id);
+      $stmt->execute(
+         [
+            'id' => $id
+         ]);
    }
 }
