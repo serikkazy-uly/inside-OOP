@@ -21,7 +21,7 @@
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item">
-                <a class="nav-link" href="index.php">MainPage</a>
+                <a class="nav-link" href="/index.php">MainPage</a>
             </li>
 
         </ul>
