@@ -20,11 +20,3 @@ if (array_key_exists($route, $routes)) {
     dd(404);
 }
 
-// $db = include 'database/start.php';
-
-// $posts = $db->getAll('posts');
-// $users = $db->getAll('users');
-// $categories = $db->getAll('categories');
-
-// include 'index.view.php';
-
